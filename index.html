@@ -3,141 +3,92 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Luheur Craft</title>
-<meta name="description" content="Luheur Craft — studio indépendant. Luheur, Skrinvala, Soikyra : des applications sans compte, sans publicité, sans abonnement.">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Work+Sans:wght@400;500;600&display=swap">
+<title>Luheur — une phrase, ta lueur du jour</title>
+<meta name="description" content="Luheur — une phrase par jour, le meilleur moment de ta journée. Sans compte, sans publicité, sans abonnement. Par Luheur Craft.">
+<meta name="theme-color" content="#0E1220">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Instrument+Sans:wght@400;500;600&display=swap">
 <style>
+  :root {
+    --bg: #0E1220; --card: #161B2C; --text: #ECE4D6; --soft: #C9C2B6;
+    --muted: #9A97A2; --faint: #6E6C78; --accent: #C9793C;
+    --line: rgba(236,228,214,0.08); --line-strong: rgba(236,228,214,0.16);
+  }
   * { box-sizing: border-box; }
-  html, body { margin: 0; }
-  a { color: #8A2E28; text-decoration: none; cursor: pointer; }
-  a:hover { color: #1C1917; }
-  .root {
-    width: 100%; min-height: 100vh;
-    background: #FBF9F4; color: #1C1917;
-    font-family: 'Work Sans', sans-serif;
-  }
+  html, body { margin: 0; background: var(--bg); }
+  a { color: var(--accent); text-decoration: none; cursor: pointer; }
+  a:hover { color: var(--text); }
+  .root { width: 100%; min-height: 100vh; background: var(--bg); color: var(--text); font-family: 'Instrument Sans', system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
 
-  /* ---- header ---- */
-  header.site {
-    border-bottom: 1px solid #E4DCD0;
-    padding: 18px 32px;
-  }
-  header.site .inner {
-    max-width: 1040px; margin: 0 auto;
-    display: flex; align-items: center; justify-content: space-between;
-    gap: 20px; flex-wrap: wrap;
-  }
-  .brand {
-    display: flex; align-items: center; gap: 16px;
-  }
-  .brand-mark { width: 88px; height: 88px; border-radius: 50%; display: block; }
-  .brand-word {
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-style: italic; font-weight: 500; font-size: 26px;
-    color: #1C1917;
-  }
-  .brand .craft {
-    font-family: 'Work Sans', sans-serif; font-style: normal;
-    font-size: 10px; letter-spacing: 0.22em; color: #8B8377; margin-left: 7px;
-  }
-  nav.top { display: flex; align-items: center; gap: 22px; font-size: 13px; flex-wrap: wrap; }
-  nav.top .nav-link { color: #55504A; }
-  nav.top .nav-link.current { color: #1C1917; font-weight: 500; }
-  nav.top .legal-group { display: flex; align-items: center; gap: 14px; }
-  nav.top .legal-label { color: #9A9187; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; }
-  nav.top .sep { color: #DAD3C4; }
+  header.site { border-bottom: 1px solid var(--line); padding: 16px 32px; }
+  header.site .inner { max-width: 1040px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+  .brand { display: flex; align-items: center; gap: 14px; }
+  .brand-mark { width: 56px; height: 56px; border-radius: 50%; display: block; }
+  .brand-word { font-family: 'Cormorant Garamond', Georgia, serif; font-style: italic; font-weight: 500; font-size: 26px; color: var(--text); }
+  .brand .craft { font-family: 'Instrument Sans', sans-serif; font-style: normal; font-weight: 600; font-size: 10px; letter-spacing: 0.22em; color: var(--muted); margin-left: 8px; }
+  nav.top { display: flex; align-items: center; gap: 20px; font-size: 13px; flex-wrap: wrap; }
+  nav.top .nav-link { color: var(--muted); }
+  nav.top .nav-link:hover, nav.top .nav-link.current { color: var(--text); }
+  nav.top .legal-group { display: flex; align-items: center; gap: 12px; }
+  nav.top .legal-label { color: var(--faint); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; }
+  nav.top .sep { color: var(--faint); }
   nav.top .lang-switch { display: flex; gap: 4px; }
-  nav.top .lang-switch .lang-btn {
-    font-family: 'Work Sans', sans-serif; font-size: 11px; letter-spacing: 0.03em;
-    padding: 4px 9px; border-radius: 100px; border: 1px solid #DAD3C4;
-    color: #6E655A; cursor: pointer; background: transparent;
-  }
-  nav.top .lang-switch .lang-btn.active { background: #1C1917; color: #FBF9F4; border-color: #1C1917; }
+  nav.top .lang-switch .lang-btn { font-family: inherit; font-size: 11px; font-weight: 600; letter-spacing: 0.06em; padding: 5px 10px; border-radius: 100px; border: 1px solid var(--line-strong); color: var(--muted); cursor: pointer; background: transparent; }
+  nav.top .lang-switch .lang-btn.active { background: var(--accent); color: var(--bg); border-color: var(--accent); }
 
-  /* ---- home view ---- */
   .home-wrap { max-width: 1040px; margin: 0 auto; padding: 0 40px; }
-  .hero { padding: 96px 0 88px 0; }
-  .hero h1 {
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-weight: 600; font-size: 48px; line-height: 1.22; letter-spacing: -0.01em;
-    margin: 0 0 26px 0; max-width: 640px; text-wrap: pretty;
-  }
-  .hero p.sub {
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-weight: 400; font-style: italic; font-size: 21px; line-height: 1.6;
-    color: #57503F; max-width: 520px; text-wrap: pretty; margin: 0;
-  }
-  hr.divider { border: none; border-top: 1px solid #DAD3C4; margin: 0 0 64px 0; }
-  .apps-grid {
-    display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 28px;
-    padding-bottom: 96px;
-  }
-  .apps-grid .a-name {
-    font-family: 'Cormorant Garamond', Georgia, serif; font-style: italic; font-weight: 500;
-    font-size: 22px; margin-bottom: 8px; color: #1C1917; display: inline-block;
-  }
-  .apps-grid a.a-name:hover { color: #8A2E28; }
-  .apps-grid .a-desc { font-size: 14px; line-height: 1.55; color: #6E655A; margin-bottom: 10px; }
-  .apps-grid .a-legal-link { font-size: 12px; color: #8A2E28; }
-  .a-badge {
-    display: inline-block; font-family: 'Work Sans', sans-serif; font-size: 10px;
-    letter-spacing: 0.06em; text-transform: uppercase; color: #9A9187;
-    border: 1px solid #DAD3C4; border-radius: 100px; padding: 2px 9px;
-    margin-left: 8px; vertical-align: middle;
-  }
-  .home-sign {
-    font-family: 'Cormorant Garamond', Georgia, serif; font-style: italic; font-size: 19px;
-    color: #3B352C; padding-bottom: 90px;
-  }
+  .hero { position: relative; padding: 110px 0 96px; max-width: 640px; }
+  .hero .glow { position: absolute; left: -160px; top: -40px; width: 620px; height: 620px; border-radius: 50%; background: radial-gradient(closest-side, rgba(201,121,60,0.16), rgba(201,121,60,0)); pointer-events: none; }
+  .hero > * { position: relative; }
+  .hero .flame { display: block; margin-bottom: 26px; }
+  .kicker { font-size: 11px; letter-spacing: 0.2em; font-weight: 600; color: var(--muted); margin-bottom: 10px; }
+  .hero h1 { font-family: 'Cormorant Garamond', Georgia, serif; font-style: italic; font-weight: 500; font-size: 56px; line-height: 1.05; margin: 0 0 26px; text-wrap: balance; }
+  .hero p.sub { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: 23px; line-height: 1.45; color: var(--soft); margin: 0 0 20px; text-wrap: pretty; }
+  .hero p.facts { font-size: 13px; letter-spacing: 0.04em; color: var(--muted); margin: 0; }
+  .cta { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 36px; }
+  .btn { display: inline-flex; align-items: center; min-height: 44px; padding: 0 22px; border-radius: 100px; background: var(--accent); color: var(--bg); font-weight: 600; font-size: 14px; }
+  .btn:hover { color: var(--bg); filter: brightness(1.08); }
+  .btn.ghost { background: transparent; color: var(--text); border: 1px solid var(--line-strong); }
+  .btn.ghost:hover { color: var(--text); border-color: var(--accent); filter: none; }
+  .home-sign { font-family: 'Cormorant Garamond', Georgia, serif; font-style: italic; font-size: 19px; color: var(--muted); padding-bottom: 90px; }
 
-  /* ---- legal views ---- */
-  .legal-wrap { max-width: 700px; margin: 0 auto; padding: 64px 32px 100px 32px; }
-  .back-link { font-size: 13px; margin-bottom: 8px; display: inline-block; }
-  .eyebrow { font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: #9A9187; margin: 20px 0 10px 0; }
-  .legal-wrap h1 {
-    font-family: 'Cormorant Garamond', Georgia, serif; font-style: italic; font-weight: 500;
-    font-size: 38px; margin: 0 0 24px 0;
-  }
-  .legal-wrap h2 {
-    font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: 24px;
-    margin: 52px 0 16px 0; letter-spacing: -0.005em;
-  }
-  .legal-wrap h2:first-of-type { margin-top: 0; }
-  .legal-wrap h3 { font-size: 15px; font-weight: 600; margin: 26px 0 8px 0; color: #1C1917; }
-  .legal-wrap p { font-size: 15px; line-height: 1.75; color: #3B352C; margin: 0 0 14px 0; text-wrap: pretty; }
-  .legal-wrap hr { border: none; border-top: 1px solid #DAD3C4; margin: 56px 0; }
-  .meta { font-size: 12px; color: #9A9187; margin-top: 60px; }
-  .notice {
-    font-size: 13px; line-height: 1.6; color: #8A2E28; background: #F5E9E5;
-    border-radius: 8px; padding: 14px 16px; margin: 0 0 40px 0;
-  }
+  .legal-wrap { max-width: 700px; margin: 0 auto; padding: 56px 32px 100px; }
+  .back-link { font-size: 13px; margin-bottom: 8px; display: inline-block; color: var(--muted); }
+  .back-link:hover { color: var(--text); }
+  .eyebrow { font-size: 11px; letter-spacing: 0.2em; font-weight: 600; text-transform: uppercase; color: var(--muted); margin: 20px 0 10px; }
+  .legal-wrap h1 { font-family: 'Cormorant Garamond', Georgia, serif; font-style: italic; font-weight: 500; font-size: 42px; line-height: 1.1; margin: 0 0 28px; }
+  .legal-wrap > div[data-l] { background: var(--card); border: 1px solid var(--line); border-radius: 26px; padding: 36px 32px; }
+  .legal-wrap h2 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: 28px; margin: 48px 0 14px; color: var(--text); }
+  .legal-wrap h2:first-of-type, .legal-wrap div[data-l] > h1 + p { margin-top: 0; }
+  .legal-wrap h3 { font-size: 13px; font-weight: 600; letter-spacing: 0.02em; margin: 28px 0 8px; color: var(--accent); }
+  .legal-wrap p { font-size: 15px; line-height: 1.75; color: var(--soft); margin: 0 0 14px; text-wrap: pretty; }
+  .legal-wrap hr { border: none; border-top: 1px solid var(--line); margin: 52px 0; }
+  .meta { font-size: 12px; color: var(--faint); margin-top: 48px; }
 
-  /* ---- view / lang switching ---- */
   section[data-view] { display: none; }
   section[data-view].active { display: block; }
   html[data-lang="fr"] [data-l="en"] { display: none; }
   html[data-lang="en"] [data-l="fr"] { display: none; }
 
-  /* ---- footer ---- */
-  footer.site {
-    border-top: 1px solid #E4DCD0; padding: 40px 32px;
-  }
-  footer.site .inner {
-    max-width: 1040px; margin: 0 auto; display: flex; justify-content: space-between;
-    align-items: baseline; flex-wrap: wrap; gap: 14px;
-  }
-  footer.site .tagline { font-family: 'Cormorant Garamond', Georgia, serif; font-style: italic; font-size: 15px; color: #55504A; }
-  footer.site .meta-row { font-size: 12px; color: #8B8377; display: flex; gap: 16px; flex-wrap: wrap; }
-  footer.site .meta-row a { color: #8B8377; }
-  footer.site .meta-row a:hover { color: #8A2E28; }
+  footer.site { border-top: 1px solid var(--line); padding: 36px 32px; }
+  footer.site .inner { max-width: 1040px; margin: 0 auto; display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 14px; }
+  footer.site .tagline { font-family: 'Cormorant Garamond', Georgia, serif; font-style: italic; font-size: 16px; color: var(--muted); }
+  footer.site .meta-row { font-size: 12px; color: var(--faint); display: flex; gap: 16px; flex-wrap: wrap; }
+  footer.site .meta-row a { color: var(--muted); }
+  footer.site .meta-row a:hover { color: var(--accent); }
 
   @media (max-width: 680px) {
-    .home-wrap { padding: 0 22px; }
-    .hero { padding: 64px 0 56px 0; }
-    .hero h1 { font-size: 34px; }
-    .apps-grid { grid-template-columns: 1fr; gap: 30px; }
+    header.site { padding: 14px 16px; }
+    .home-wrap { padding: 0 16px; }
+    .hero { padding: 64px 0 56px; }
+    .hero .glow { left: -200px; width: 480px; height: 480px; }
+    .hero h1 { font-size: 40px; }
+    .hero p.sub { font-size: 20px; }
     header.site .inner { flex-direction: column; align-items: flex-start; }
-    nav.top { width: 100%; justify-content: space-between; }
+    nav.top { width: 100%; gap: 12px 16px; }
+    .legal-wrap { padding: 40px 16px 80px; }
+    .legal-wrap > div[data-l] { padding: 26px 20px; border-radius: 20px; }
+    .legal-wrap h1 { font-size: 34px; }
+    footer.site { padding: 28px 16px; }
   }
 </style>
 </head>
@@ -160,8 +111,6 @@
             <span data-l="fr">CGU &amp; confidentialité</span><span data-l="en">Terms &amp; Privacy</span>
           </span>
           <a class="nav-link" href="#luheur" data-nav="luheur">Luheur</a>
-          <a class="nav-link" href="#perlys" data-nav="perlys">Skrinvala</a>
-          <a class="nav-link" href="#elipsya" data-nav="elipsya">Soikyra</a>
         </div>
         <span class="sep">·</span>
         <a class="nav-link" href="#mentions" data-nav="mentions">
@@ -181,55 +130,23 @@
     <section data-view="home">
       <div class="home-wrap">
         <section class="hero">
+          <div class="glow" aria-hidden="true"></div>
+          <svg class="flame" width="26" height="32" viewBox="0 0 18 22" aria-hidden="true"><path d="M9 1c1.2 3.6 6 6.4 6 11.4A6 6 0 0 1 3 12.4C3 9 5.3 7.6 6.2 5c.9 2 1.8 2.8 2.8 3.2C9.4 6 9.4 3.4 9 1z" fill="#C9793C"/></svg>
           <div data-l="fr">
-            <h1>Écrit pour ceux qui préfèrent ralentir.</h1>
-            <p class="sub">Sans compte, sans publicité, sans abonnement — pensées pour durer, pas pour retenir votre attention.</p>
+            <div class="kicker">LUHEUR</div>
+            <h1>Une phrase, ta lueur du jour.</h1>
+            <p class="sub">Chaque soir, tu notes le meilleur moment de ta journée. Chaque mois, tu choisis ta lueur du mois ; à la fin de l'année, ta lueur de l'année.</p>
+            <p class="facts">Sans compte · sans publicité · sans abonnement</p>
           </div>
           <div data-l="en">
-            <h1>Written for those who prefer to slow down.</h1>
-            <p class="sub">No account, no ads, no subscription — thoughts meant to last, not to hold your attention.</p>
+            <div class="kicker">LUHEUR</div>
+            <h1>One sentence, your glimmer of the day.</h1>
+            <p class="sub">Each evening, write down the best moment of your day. Each month, pick your glimmer of the month; at the end of the year, your glimmer of the year.</p>
+            <p class="facts">No account · no ads · no subscription</p>
           </div>
-        </section>
-
-        <hr class="divider">
-
-        <section class="apps-grid">
-          <div>
-            <a class="a-name" href="#luheur" data-nav="luheur">Luheur</a>
-            <div data-l="fr">
-              <div class="a-desc">Le meilleur moment du jour.</div>
-              <a class="a-legal-link" href="#luheur" data-nav="luheur">CGU &amp; confidentialité →</a>
-            </div>
-            <div data-l="en">
-              <div class="a-desc">The best moment of the day.</div>
-              <a class="a-legal-link" href="#luheur" data-nav="luheur">Terms &amp; Privacy →</a>
-            </div>
-          </div>
-          <div>
-            <a class="a-name" href="#perlys" data-nav="perlys">Skrinvala</a>
-            <span class="a-badge" data-l="fr">Bientôt disponible</span>
-            <span class="a-badge" data-l="en">Coming soon</span>
-            <div data-l="fr">
-              <div class="a-desc">Les pensées qu'on garde.</div>
-              <a class="a-legal-link" href="#perlys" data-nav="perlys">CGU &amp; confidentialité →</a>
-            </div>
-            <div data-l="en">
-              <div class="a-desc">The thoughts we keep.</div>
-              <a class="a-legal-link" href="#perlys" data-nav="perlys">Terms &amp; Privacy →</a>
-            </div>
-          </div>
-          <div>
-            <a class="a-name" href="#elipsya" data-nav="elipsya">Soikyra</a>
-            <span class="a-badge" data-l="fr">Bientôt disponible</span>
-            <span class="a-badge" data-l="en">Coming soon</span>
-            <div data-l="fr">
-              <div class="a-desc">Les lettres qu'on se scelle.</div>
-              <a class="a-legal-link" href="#elipsya" data-nav="elipsya">CGU &amp; confidentialité →</a>
-            </div>
-            <div data-l="en">
-              <div class="a-desc">The letters we seal to ourselves.</div>
-              <a class="a-legal-link" href="#elipsya" data-nav="elipsya">Terms &amp; Privacy →</a>
-            </div>
+          <div class="cta">
+            <a class="btn" href="https://apps.apple.com/app/id6809587786" target="_blank" rel="noopener">App Store</a>
+            <a class="btn ghost" href="#luheur" data-nav="luheur"><span data-l="fr">CGU &amp; confidentialité</span><span data-l="en">Terms &amp; Privacy</span></a>
           </div>
         </section>
 
@@ -256,9 +173,9 @@
           <h3>Article 3 — Accès au service</h3>
           <p>L'application est proposée en téléchargement payant, en paiement unique, sans abonnement ni achat intégré. Elle est disponible sur iOS et Android.</p>
           <h3>Article 4 — Propriété intellectuelle</h3>
-          <p>L'application, son code, son interface et son contenu éditorial sont la propriété exclusive de l'Éditeur. Le contenu rédigé par l'utilisateur reste sa propriété exclusive ; l'Éditeur n'y a ni accès ni droit d'usage, les données étant stockées uniquement sur l'appareil de l'utilisateur.</p>
+          <p>L'application, son code, son interface et son contenu éditorial sont la propriété exclusive de l'Éditeur. Le contenu rédigé par l'utilisateur reste sa propriété exclusive ; l'Éditeur n'y a ni accès ni droit d'usage : les données sont stockées sur l'appareil de l'utilisateur et, s'il le souhaite, dans son propre espace iCloud ou dans la sauvegarde Google de son téléphone, auxquels l'Éditeur n'a pas accès.</p>
           <h3>Article 5 — Responsabilité</h3>
-          <p>L'Éditeur met tout en œuvre pour assurer la disponibilité et le bon fonctionnement de l'application, sans garantie d'absence d'erreur ou d'interruption. L'utilisateur est seul responsable de la sauvegarde de son contenu, via la fonction d'export prévue dans l'application. En cas de désinstallation, perte ou changement d'appareil sans export préalable, les données ne peuvent être récupérées, faute de stockage externe.</p>
+          <p>L'Éditeur met tout en œuvre pour assurer la disponibilité et le bon fonctionnement de l'application, sans garantie d'absence d'erreur ou d'interruption. Sur iPhone, la synchronisation iCloud (activée par défaut, désactivable dans les réglages de l'application) permet de retrouver ses lueurs sur ses autres appareils. Sur Android, les lueurs sont incluses dans la sauvegarde Google du téléphone lorsque l'utilisateur l'a activée. L'utilisateur reste responsable de la sauvegarde de son contenu ; la fonction d'export prévue dans l'application permet d'en garder une copie. Sans synchronisation, sauvegarde ni export, les données ne peuvent être récupérées en cas de désinstallation, perte ou changement d'appareil.</p>
           <h3>Article 6 — Modification des CGU</h3>
           <p>L'Éditeur se réserve le droit de modifier les présentes CGU à tout moment. Les utilisateurs seront informés de toute modification substantielle via une mise à jour de l'application.</p>
           <h3>Article 7 — Droit applicable</h3>
@@ -268,7 +185,9 @@
           <h3>1. Responsable du traitement</h3>
           <p>Voir les <a href="#mentions" data-nav="mentions">mentions légales</a> du site.</p>
           <h3>2. Données collectées</h3>
-          <p>Luheur ne collecte aucune donnée personnelle. L'application ne requiert aucun compte, aucune inscription, aucune adresse email. Le contenu rédigé par l'utilisateur est stocké exclusivement en local, sur l'appareil de l'utilisateur, et n'est jamais transmis à un serveur.</p>
+          <p>Luheur ne collecte aucune donnée personnelle. L'application ne requiert aucun compte, aucune inscription, aucune adresse email. L'Éditeur n'a accès à aucun contenu rédigé par l'utilisateur et n'exploite aucun serveur.</p>
+          <h3>2 bis. Synchronisation et sauvegarde</h3>
+          <p>Le contenu est stocké sur l'appareil de l'utilisateur. Sur iPhone, si la synchronisation iCloud est activée (option par défaut, désactivable dans les réglages de l'application), les lueurs sont copiées dans la base privée iCloud de l'utilisateur, gérée par Apple et rattachée à son identifiant Apple ; l'Éditeur n'y a pas accès. Sur Android, si la sauvegarde Google du téléphone est activée, les lueurs y sont incluses, sous le compte Google de l'utilisateur ; l'Éditeur n'y a pas accès. Ces services sont soumis aux politiques de confidentialité d'Apple et de Google.</p>
           <h3>3. Aucun traceur, aucune analyse</h3>
           <p>L'application n'intègre aucun outil d'analyse d'audience, aucun traceur publicitaire, aucun SDK tiers de collecte de données.</p>
           <h3>4. Notifications</h3>
@@ -276,10 +195,10 @@
           <h3>5. Authentification biométrique</h3>
           <p>Si l'utilisateur active le verrouillage par reconnaissance biométrique, cette fonctionnalité est gérée entièrement par le système d'exploitation de l'appareil ; aucune donnée biométrique n'est accessible à l'application ni à l'Éditeur.</p>
           <h3>6. Export et suppression des données</h3>
-          <p>L'utilisateur peut à tout moment exporter ses données depuis l'application, ou les supprimer en désinstallant l'application.</p>
+          <p>L'utilisateur peut à tout moment exporter ses données depuis l'application. Désinstaller l'application supprime les données de l'appareil ; la copie iCloud se supprime depuis les réglages de l'iPhone (identifiant Apple → iCloud → gérer le stockage), et la sauvegarde Android depuis les paramètres du compte Google.</p>
           <h3>7. Vos droits</h3>
           <p>Aucune donnée personnelle n'étant collectée, il n'existe aucune donnée sur laquelle exercer un droit auprès de l'Éditeur. Pour toute question, contactez <a href="mailto:luheurcraft@gmail.com">luheurcraft@gmail.com</a>.</p>
-          <div class="meta">Dernière mise à jour : 13 septembre 2026</div>
+          <div class="meta">Dernière mise à jour : 14 novembre 2026</div>
         </div>
 
         <div data-l="en">
@@ -291,9 +210,9 @@
           <h3>Article 3 — Access to the service</h3>
           <p>The application is offered as a paid download, one-time payment, with no subscription or in-app purchase. It is available on iOS and Android.</p>
           <h3>Article 4 — Intellectual property</h3>
-          <p>The application, its code, interface and editorial content are the exclusive property of the Publisher. Content written by the user remains their exclusive property; the Publisher has no access to it, as the data is stored solely on the user's device.</p>
+          <p>The application, its code, interface and editorial content are the exclusive property of the Publisher. Content written by the user remains their exclusive property; the Publisher has no access to it: the data is stored on the user's device and, if they choose, in their own iCloud space or their phone's Google backup, neither of which the Publisher can access.</p>
           <h3>Article 5 — Liability</h3>
-          <p>The Publisher makes every effort to ensure the application functions properly, without guaranteeing the absence of errors. The user is solely responsible for backing up their content via the export feature. Without a prior export, data cannot be recovered after uninstallation, loss, or device change.</p>
+          <p>The Publisher makes every effort to ensure the application functions properly, without guaranteeing the absence of errors. On iPhone, iCloud sync (on by default, can be turned off in the app's settings) keeps the user's entries across their devices. On Android, entries are included in the phone's Google backup when the user has enabled it. The user remains responsible for backing up their content; the in-app export feature lets them keep a copy. Without sync, backup or export, data cannot be recovered after uninstallation, loss, or device change.</p>
           <h3>Article 6 — Changes to these Terms</h3>
           <p>The Publisher reserves the right to modify these Terms at any time. Users will be informed of substantial changes via an application update.</p>
           <h3>Article 7 — Governing law</h3>
@@ -303,7 +222,9 @@
           <h3>1. Data controller</h3>
           <p>See the <a href="#mentions" data-nav="mentions">legal notice</a> of the site.</p>
           <h3>2. Data collected</h3>
-          <p>Luheur collects no personal data. The application requires no account, no sign-up, no email address. Content written by the user is stored exclusively on the user's device and never transmitted to a server.</p>
+          <p>Luheur collects no personal data. The application requires no account, no sign-up, no email address. The Publisher has no access to any content written by the user and runs no server.</p>
+          <h3>2a. Sync and backup</h3>
+          <p>Content is stored on the user's device. On iPhone, if iCloud sync is on (default, can be turned off in the app's settings), entries are copied to the user's private iCloud database, operated by Apple and tied to their Apple Account; the Publisher cannot access it. On Android, if the phone's Google backup is on, entries are included in it, under the user's Google account; the Publisher cannot access it. These services are subject to Apple's and Google's privacy policies.</p>
           <h3>3. No trackers, no analytics</h3>
           <p>The application includes no audience-measurement tool, no advertising tracker, no third-party data-collection SDK.</p>
           <h3>4. Notifications</h3>
@@ -311,169 +232,15 @@
           <h3>5. Biometric authentication</h3>
           <p>If the user enables biometric lock, this feature is handled entirely by the device's operating system; no biometric data is accessible to the application or the Publisher.</p>
           <h3>6. Exporting and deleting data</h3>
-          <p>The user may export their data at any time, or delete it by uninstalling the application.</p>
+          <p>The user may export their data at any time. Uninstalling the application deletes the data from the device; the iCloud copy can be deleted in the iPhone's settings (Apple Account → iCloud → Manage Storage), and the Android backup in the Google account settings.</p>
           <h3>7. Your rights</h3>
           <p>As no personal data is collected, there is no data on which to exercise a right with the Publisher. For any question, contact <a href="mailto:luheurcraft@gmail.com">luheurcraft@gmail.com</a>.</p>
-          <div class="meta">Last updated: September 13, 2026</div>
+          <div class="meta">Last updated: November 14, 2026</div>
         </div>
       </div>
     </section>
 
-    <section data-view="perlys">
-      <div class="legal-wrap">
-        <a class="back-link" href="#home" data-nav="home">
-          <span data-l="fr">← Accueil</span><span data-l="en">← Home</span>
-        </a>
-        <div class="eyebrow">Skrinvala — Luheur Craft</div>
-        <h1><span data-l="fr">CGU &amp; Politique de confidentialité</span><span data-l="en">Terms &amp; Privacy Policy</span></h1>
 
-        <div data-l="fr">
-          <div class="notice">Skrinvala est encore en développement — ce texte est un premier brouillon, à ajuster avant la publication de l'application.</div>
-          <h2>Conditions générales d'utilisation</h2>
-          <h3>Article 1 — Objet</h3>
-          <p>Les présentes conditions générales d'utilisation (CGU) régissent l'utilisation de l'application mobile Skrinvala, éditée par l'entité identifiée dans les <a href="#mentions" data-nav="mentions">mentions légales</a>, ci-après « l'Éditeur ».</p>
-          <h3>Article 2 — Description du service</h3>
-          <p>Skrinvala permet à l'utilisateur de capturer, en une phrase, une pensée agréable dès qu'elle survient. Une fois enregistrée, une pensée devient définitive : elle ne peut plus être modifiée ni supprimée.</p>
-          <h3>Article 3 — Accès au service</h3>
-          <p>L'application est proposée en téléchargement payant, en paiement unique, sans abonnement. Elle est disponible sur iOS et Android.</p>
-          <h3>Article 4 — Caractère définitif du contenu</h3>
-          <p>L'utilisateur reconnaît que toute pensée enregistrée devient immuable dès sa validation. L'Éditeur ne propose aucun moyen de revenir sur cette action.</p>
-          <h3>Article 5 — Propriété intellectuelle</h3>
-          <p>Le contenu rédigé par l'utilisateur reste sa propriété exclusive et n'est stocké que localement, sur son appareil.</p>
-          <h3>Article 6 — Responsabilité</h3>
-          <p>L'utilisateur est seul responsable de la sauvegarde de son contenu. Sans sauvegarde préalable, les données ne peuvent être récupérées en cas de désinstallation, perte ou changement d'appareil.</p>
-          <h3>Article 7 — Modification des CGU</h3>
-          <p>L'Éditeur se réserve le droit de modifier les présentes CGU à tout moment.</p>
-          <h3>Article 8 — Droit applicable</h3>
-          <p>Les présentes CGU sont soumises au droit français.</p>
-          <hr>
-          <h2>Politique de confidentialité</h2>
-          <h3>1. Responsable du traitement</h3>
-          <p>Voir les <a href="#mentions" data-nav="mentions">mentions légales</a> du site.</p>
-          <h3>2. Données collectées</h3>
-          <p>Skrinvala ne collecte aucune donnée personnelle. L'application ne requiert aucun compte ni inscription. Les pensées enregistrées sont stockées exclusivement en local.</p>
-          <h3>3. Aucun traceur, aucune analyse</h3>
-          <p>Aucun outil d'analyse d'audience ni traceur publicitaire n'est intégré à l'application.</p>
-          <h3>4. Suppression des données</h3>
-          <p>Les pensées étant définitives par nature, elles ne peuvent être supprimées individuellement. L'ensemble des données peut être effacé en désinstallant l'application.</p>
-          <h3>5. Vos droits</h3>
-          <p>Aucune donnée personnelle n'étant collectée, il n'existe aucune donnée sur laquelle exercer un droit. Pour toute question, contactez <a href="mailto:luheurcraft@gmail.com">luheurcraft@gmail.com</a>.</p>
-          <div class="meta">Dernière mise à jour : 13 septembre 2026</div>
-        </div>
-
-        <div data-l="en">
-          <div class="notice">Skrinvala is still in development — this text is an early draft, to be refined before the app is published.</div>
-          <h2>Terms of Service</h2>
-          <h3>Article 1 — Purpose</h3>
-          <p>These terms of service ("Terms") govern the use of the Skrinvala mobile application, published by the entity identified in the <a href="#mentions" data-nav="mentions">legal notice</a>, hereinafter "the Publisher".</p>
-          <h3>Article 2 — Description of the service</h3>
-          <p>Skrinvala lets the user capture, in one sentence, a pleasant thought as soon as it arises. Once saved, a thought becomes permanent: it can no longer be edited or deleted.</p>
-          <h3>Article 3 — Access to the service</h3>
-          <p>The application is offered as a paid download, one-time payment, with no subscription. It is available on iOS and Android.</p>
-          <h3>Article 4 — Permanence of content</h3>
-          <p>The user acknowledges that any saved thought becomes immutable upon confirmation. The Publisher provides no means to reverse this action.</p>
-          <h3>Article 5 — Intellectual property</h3>
-          <p>Content written by the user remains their exclusive property and is stored only locally, on their device.</p>
-          <h3>Article 6 — Liability</h3>
-          <p>The user is solely responsible for backing up their content. Without a prior backup, data cannot be recovered after uninstallation, loss, or device change.</p>
-          <h3>Article 7 — Changes to these Terms</h3>
-          <p>The Publisher reserves the right to modify these Terms at any time.</p>
-          <h3>Article 8 — Governing law</h3>
-          <p>These Terms are governed by French law.</p>
-          <hr>
-          <h2>Privacy Policy</h2>
-          <h3>1. Data controller</h3>
-          <p>See the <a href="#mentions" data-nav="mentions">legal notice</a> of the site.</p>
-          <h3>2. Data collected</h3>
-          <p>Skrinvala collects no personal data. The application requires no account or sign-up. Saved thoughts are stored exclusively on the user's device.</p>
-          <h3>3. No trackers, no analytics</h3>
-          <p>No audience-measurement tool or advertising tracker is included in the application.</p>
-          <h3>4. Deleting data</h3>
-          <p>As thoughts are permanent by design, they cannot be deleted individually. All data can be erased by uninstalling the application.</p>
-          <h3>5. Your rights</h3>
-          <p>As no personal data is collected, there is no data on which to exercise a right. For any question, contact <a href="mailto:luheurcraft@gmail.com">luheurcraft@gmail.com</a>.</p>
-          <div class="meta">Last updated: September 13, 2026</div>
-        </div>
-      </div>
-    </section>
-
-    <section data-view="elipsya">
-      <div class="legal-wrap">
-        <a class="back-link" href="#home" data-nav="home">
-          <span data-l="fr">← Accueil</span><span data-l="en">← Home</span>
-        </a>
-        <div class="eyebrow">Soikyra — Luheur Craft</div>
-        <h1><span data-l="fr">CGU &amp; Politique de confidentialité</span><span data-l="en">Terms &amp; Privacy Policy</span></h1>
-
-        <div data-l="fr">
-          <div class="notice">Soikyra est encore en développement — ce texte est un premier brouillon, à ajuster avant la publication de l'application.</div>
-          <h2>Conditions générales d'utilisation</h2>
-          <h3>Article 1 — Objet</h3>
-          <p>Les présentes conditions générales d'utilisation (CGU) régissent l'utilisation de l'application mobile Soikyra, éditée par l'entité identifiée dans les <a href="#mentions" data-nav="mentions">mentions légales</a>, ci-après « l'Éditeur ».</p>
-          <h3>Article 2 — Description du service</h3>
-          <p>Soikyra permet à l'utilisateur de rédiger une lettre qui lui est destinée, avec une date d'ouverture future, au minimum le lendemain. Il est techniquement impossible d'accéder à son contenu avant cette date.</p>
-          <h3>Article 3 — Caractère irréversible du scellement</h3>
-          <p>Une fois une lettre scellée, son contenu est inaccessible — y compris à l'Éditeur — jusqu'à la date fixée, sans aucun moyen de déverrouillage anticipé.</p>
-          <h3>Article 4 — Accès au service</h3>
-          <p>Les modalités d'accès seront communiquées lors de la mise à disposition publique. Aucune formule par abonnement n'est prévue.</p>
-          <h3>Article 5 — Propriété intellectuelle</h3>
-          <p>Le contenu rédigé par l'utilisateur reste sa propriété exclusive et n'est stocké que localement.</p>
-          <h3>Article 6 — Responsabilité</h3>
-          <p>En cas de désinstallation, perte ou changement d'appareil, une lettre scellée non encore ouverte ne peut être récupérée.</p>
-          <h3>Article 7 — Modification des CGU</h3>
-          <p>L'Éditeur se réserve le droit de modifier les présentes CGU à tout moment.</p>
-          <h3>Article 8 — Droit applicable</h3>
-          <p>Les présentes CGU sont soumises au droit français.</p>
-          <hr>
-          <h2>Politique de confidentialité</h2>
-          <h3>1. Responsable du traitement</h3>
-          <p>Voir les <a href="#mentions" data-nav="mentions">mentions légales</a> du site.</p>
-          <h3>2. Données collectées</h3>
-          <p>Soikyra ne collecte aucune donnée personnelle. Le contenu des lettres est stocké exclusivement en local, verrouillé jusqu'à la date d'ouverture choisie.</p>
-          <h3>3. Aucun traceur, aucune analyse</h3>
-          <p>Aucun outil d'analyse d'audience ni traceur publicitaire n'est intégré à l'application.</p>
-          <h3>4. Notifications</h3>
-          <p>Si des rappels sont proposés, ceux-ci sont gérés localement par le système d'exploitation.</p>
-          <h3>5. Vos droits</h3>
-          <p>Aucune donnée personnelle n'étant collectée, il n'existe aucune donnée sur laquelle exercer un droit. Pour toute question, contactez <a href="mailto:luheurcraft@gmail.com">luheurcraft@gmail.com</a>.</p>
-          <div class="meta">Dernière mise à jour : 13 septembre 2026</div>
-        </div>
-
-        <div data-l="en">
-          <div class="notice">Soikyra is still in development — this text is an early draft, to be refined before the app is published.</div>
-          <h2>Terms of Service</h2>
-          <h3>Article 1 — Purpose</h3>
-          <p>These terms of service ("Terms") govern the use of the Soikyra mobile application, published by the entity identified in the <a href="#mentions" data-nav="mentions">legal notice</a>, hereinafter "the Publisher".</p>
-          <h3>Article 2 — Description of the service</h3>
-          <p>Soikyra lets the user write a letter addressed to themselves, with a future opening date, at minimum the day after writing. It is technically impossible to access its content before that date.</p>
-          <h3>Article 3 — Irreversibility of sealing</h3>
-          <p>Once a letter is sealed, its content is inaccessible — including to the Publisher — until the chosen date, with no means of early unlocking.</p>
-          <h3>Article 4 — Access to the service</h3>
-          <p>Access terms will be communicated when the application becomes publicly available. No subscription plan is planned.</p>
-          <h3>Article 5 — Intellectual property</h3>
-          <p>Content written by the user remains their exclusive property and is stored only locally.</p>
-          <h3>Article 6 — Liability</h3>
-          <p>In the event of uninstallation, loss, or device change, a sealed, not-yet-opened letter cannot be recovered.</p>
-          <h3>Article 7 — Changes to these Terms</h3>
-          <p>The Publisher reserves the right to modify these Terms at any time.</p>
-          <h3>Article 8 — Governing law</h3>
-          <p>These Terms are governed by French law.</p>
-          <hr>
-          <h2>Privacy Policy</h2>
-          <h3>1. Data controller</h3>
-          <p>See the <a href="#mentions" data-nav="mentions">legal notice</a> of the site.</p>
-          <h3>2. Data collected</h3>
-          <p>Soikyra collects no personal data. Letter content is stored exclusively on the user's device, locked until the chosen opening date.</p>
-          <h3>3. No trackers, no analytics</h3>
-          <p>No audience-measurement tool or advertising tracker is included in the application.</p>
-          <h3>4. Notifications</h3>
-          <p>If reminders are offered, these are managed locally by the operating system.</p>
-          <h3>5. Your rights</h3>
-          <p>As no personal data is collected, there is no data on which to exercise a right. For any question, contact <a href="mailto:luheurcraft@gmail.com">luheurcraft@gmail.com</a>.</p>
-          <div class="meta">Last updated: September 13, 2026</div>
-        </div>
-      </div>
-    </section>
 
     <section data-view="mentions">
       <div class="legal-wrap">
@@ -489,7 +256,7 @@
           <p>Directeur de la publication : Sébastien Fournerie</p>
           <p>Contact : <a href="mailto:luheurcraft@gmail.com">luheurcraft@gmail.com</a></p>
           <p>Hébergement : GitHub, Inc. — 88 Colin P Kelly Jr St, San Francisco, CA 94107, États-Unis</p>
-          <div class="meta">Ces informations identifient l'éditeur de Luheur, Skrinvala et Soikyra, publiées sous le studio Luheur Craft.</div>
+          <div class="meta">Ces informations identifient l'éditeur de Luheur, publiée sous le studio Luheur Craft.</div>
         </div>
         <div data-l="en">
           <h1>Legal Notice</h1>
@@ -499,7 +266,7 @@
           <p>Publication director: Sébastien Fournerie</p>
           <p>Contact: <a href="mailto:luheurcraft@gmail.com">luheurcraft@gmail.com</a></p>
           <p>Hosting: GitHub, Inc. — 88 Colin P Kelly Jr St, San Francisco, CA 94107, United States</p>
-          <div class="meta">This information identifies the publisher of Luheur, Skrinvala and Soikyra, published under the Luheur Craft studio.</div>
+          <div class="meta">This information identifies the publisher of Luheur, published under the Luheur Craft studio.</div>
         </div>
       </div>
     </section>
@@ -525,7 +292,7 @@
 
 <script>
 (function () {
-  var VIEWS = ['home', 'luheur', 'perlys', 'elipsya', 'mentions'];
+  var VIEWS = ['home', 'luheur', 'mentions'];
 
   function currentView() {
     var h = window.location.hash.replace('#', '');
@@ -546,6 +313,7 @@
 
   function setLang(lang) {
     document.documentElement.setAttribute('data-lang', lang);
+    document.documentElement.setAttribute('lang', lang);
     document.querySelectorAll('[data-lang-btn]').forEach(function (b) {
       b.classList.toggle('active', b.getAttribute('data-lang-btn') === lang);
     });
@@ -559,7 +327,8 @@
 
   window.addEventListener('hashchange', applyView);
 
-  setLang('fr');
+  var nav = (navigator.language || 'fr').toLowerCase();
+  setLang(nav.indexOf('fr') === 0 ? 'fr' : 'en');
   applyView();
 })();
 </script>
